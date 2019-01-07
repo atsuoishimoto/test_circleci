@@ -37,10 +37,4 @@ workflows:
 
   build_test_deploy:
     jobs:
-      - flow
-      - downstream:
-          requires:
-            - flow
-          filters:
-            branches:
-              only: master
+      - build

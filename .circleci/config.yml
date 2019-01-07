@@ -22,6 +22,16 @@ jobs:
       - run:
           command: |
             echo deploy2 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
+
+  deploy3:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - run:
+          command: |
+            echo deploy3 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
+
+
 workflows:
   version: 2
   build_and_deploy:
@@ -44,4 +54,11 @@ workflows:
               ignore: /.*/
             tags:
               ignore: /.*/
+      - deploy3:
+          filters:
+            branches:
+              requires: /.*/
+            tags:
+              ignore: /.*/
+
 

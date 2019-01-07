@@ -6,6 +6,7 @@ jobs:
     steps:
       - run:
           command: |
+            mkdir aaa
             echo build ${CIRCLE_BRANCH} ${CIRCLE_TAG}
   deploy1:
     docker:
@@ -13,7 +14,7 @@ jobs:
     steps:
       - run:
           command: |
-            echo deploy1 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
+            echo deploy1 ${CIRCLE_BRANCH} ${CIRCLE_TAG}; ls
 
   deploy2:
     docker:

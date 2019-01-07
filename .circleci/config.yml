@@ -43,3 +43,10 @@ workflows:
               only: /.*/
             tags:
               only: /.*/
+
+      - deploy1:
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              only: /.*/

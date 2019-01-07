@@ -1,0 +1,48 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - run:
+          command: |
+            echo build ${CIRCLE_BRANCH} ${CIRCLE_TAG}
+  deploy1:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - run:
+          command: |
+            echo deploy1 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
+
+  deploy2:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - run:
+          command: |
+            echo deploy2 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
+
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              only: /.*/
+
+      - deploy1:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
+
+      - deploy2:
+            branches:
+              ignore: /.*/
+            tags:
+              ignore: /.*/

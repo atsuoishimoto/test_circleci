@@ -36,7 +36,7 @@ workflows:
   version: 2
   build_and_deploy:
     build1:
-      - build:
+      - build
       filters:
         branches:
           only: /.*/
@@ -44,7 +44,7 @@ workflows:
           only: /.*/
 
     deploy1:
-      - deploy1:
+      - deploy1
       filters:
         branches:
           ignore: /.*/
@@ -52,7 +52,7 @@ workflows:
           only: /.*/
 
     deploy2:
-      - deploy2:
+      - deploy2
       filters:
         branches:
           ignore: /.*/
@@ -60,7 +60,7 @@ workflows:
           ignore: /.*/
 
     deploy3:
-      - deploy3:
+      - deploy3
       filters:
         branches:
           only: /.*/

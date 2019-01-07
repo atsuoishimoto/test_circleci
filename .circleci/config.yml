@@ -14,7 +14,9 @@ jobs:
     steps:
       - run:
           command: |
-            echo deploy1 ${CIRCLE_BRANCH} ${CIRCLE_TAG}; ls
+            echo deploy1 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
+            touch bbbb
+            ls
 
   deploy2:
     docker:

@@ -40,4 +40,6 @@ workflows:
       - build:
           filters:
             branches:
-              only: /master/
+              only: /.*/
+            tags:
+              only: /.*/

@@ -57,7 +57,7 @@ workflows:
       - deploy3:
           filters:
             branches:
-              requires: /.*/
+              only: /.*/
             tags:
               ignore: /.*/
 

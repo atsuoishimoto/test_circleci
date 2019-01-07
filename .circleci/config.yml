@@ -34,13 +34,36 @@ jobs:
 
 workflows:
   version: 2
-
-  build_test_deploy:
+  build_and_deploy:
     jobs:
       - build
+      filters:
+        branches:
+          only: /.*/
+        tags:
+          only: /.*/
 
-        filters:
-          branches:
-            only: /.*/
-          tags:
-            only: /.*/
+    deploy1:
+      - deploy1
+      filters:
+        branches:
+          ignore: /.*/
+        tags:
+          only: /.*/
+
+    deploy2:
+      - deploy2
+      filters:
+        branches:
+          ignore: /.*/
+        tags:
+          ignore: /.*/
+
+    deploy3:
+      - deploy3
+      filters:
+        branches:
+          only: /.*/
+        tags:
+          only: /.*/
+

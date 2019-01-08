@@ -49,8 +49,8 @@ workflows:
           filters:
             # ignore any commit on any branch by default
             branches:
-              only:
-                - master
+              ignore: /.*/
+
             # only act on version tags
             tags:
               only: /^v[-0-9.]+/

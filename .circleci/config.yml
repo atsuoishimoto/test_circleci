@@ -50,5 +50,4 @@ workflows:
               only:
                 - master
             tags:
-              ignore: /.*/
-
+              only: /^v.*/

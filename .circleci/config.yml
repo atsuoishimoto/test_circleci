@@ -44,7 +44,7 @@ workflows:
           filters:
             # only act on version tags
             tags:
-              only: /^v.*/
+              only: /.*/
 
       - deploy1:
           requires:

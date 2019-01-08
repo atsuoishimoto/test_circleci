@@ -7,7 +7,7 @@ jobs:
       - run:
           command: |
             mkdir aaa
-            echo build ${CIRCLE_BRANCH} ${CIRCLE_TAG}
+            echo 11111 build ${CIRCLE_BRANCH} ${CIRCLE_TAG}
             ls
   deploy1:
     docker:
@@ -15,7 +15,7 @@ jobs:
     steps:
       - run:
           command: |
-            echo deploy1 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
+            echo 11111  deploy1 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
             touch bbbb
             ls
 
@@ -25,7 +25,7 @@ jobs:
     steps:
       - run:
           command: |
-            echo deploy2 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
+            echo 11111 deploy2 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
 
 
 
@@ -36,7 +36,7 @@ workflows:
       - build:
           filters:
             branches:
-              ignore: /.*/
+              only: /.*/
             tags:
               only: /.*/
 

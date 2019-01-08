@@ -9,7 +9,7 @@ jobs:
             mkdir aaa
             echo build ${CIRCLE_BRANCH} ${CIRCLE_TAG}
             ls
-  deploy:
+  deploy1:
     docker:
       - image: circleci/python:3.6
     steps:
@@ -27,31 +27,30 @@ jobs:
           command: |
             echo deploy2 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
 
-  deploy3:
-    docker:
-      - image: circleci/python:3.6
-    steps:
-      - run:
-          command: |
-            echo deploy3 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
 
 
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              only: /.*/
 
-# workflows:
-#   version: 2
-#   build_and_deploy:
-#     jobs:
-#       - build:
-#           filters:
-#             branches:
-#               only: /.*/
-#             tags:
-#               only: /.*/
-# 
-#       - deploy1:
-#           filters:
-#             branches:
-#               only: /.*/
-#             tags:
-#               only: /.*/
-# 
+      - deploy1:
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              ignore: /.*/
+
+      - deploy2:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
+

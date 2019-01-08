@@ -41,6 +41,11 @@ workflows:
   build_and_deploy:
     jobs:
       - build
+          filters:
+            # only act on version tags
+            tags:
+              only: /^v.*/
+
       - deploy1:
           requires:
             - build

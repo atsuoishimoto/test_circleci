@@ -9,7 +9,7 @@ jobs:
             mkdir aaa
             echo build ${CIRCLE_BRANCH} ${CIRCLE_TAG}
             ls
-  deploy1:
+  deploy:
     docker:
       - image: circleci/python:3.6
     steps:

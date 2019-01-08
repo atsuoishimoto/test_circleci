@@ -50,6 +50,5 @@ workflows:
               only:
                 - master
             tags:
-              ignore:
-                -  /user-.*/
+              only: /user-.*/
 

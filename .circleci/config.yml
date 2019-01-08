@@ -37,20 +37,21 @@ jobs:
 
 
 
-workflows:
-  version: 2
-  build_and_deploy:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: /.*/
-            tags:
-              only: /.*/
-
-      - deploy1:
-          filters:
-            branches:
-              only: /.*/
-            tags:
-              only: /.*/
+# workflows:
+#   version: 2
+#   build_and_deploy:
+#     jobs:
+#       - build:
+#           filters:
+#             branches:
+#               only: /.*/
+#             tags:
+#               only: /.*/
+# 
+#       - deploy1:
+#           filters:
+#             branches:
+#               only: /.*/
+#             tags:
+#               only: /.*/
+# 

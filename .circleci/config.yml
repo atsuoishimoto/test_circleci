@@ -27,6 +27,14 @@ jobs:
           command: |
             echo 11111 deploy2 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
 
+  deploy3:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - run:
+          command: |
+            echo 11111 deploy3 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
+
 
 
 workflows:
@@ -53,4 +61,11 @@ workflows:
               ignore: /.*/
             tags:
               only: /.*/
+
+      - deploy3:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              ignore: /.*/
 

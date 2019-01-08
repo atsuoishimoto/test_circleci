@@ -51,4 +51,4 @@ workflows:
 
             # only act on version tags
             tags:
-              only: /^v[-0-9.]+/
+              only: /.*/

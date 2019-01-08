@@ -46,7 +46,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /.*/
+              only: /v.*/
 
       - deploy1:
           requires:

@@ -19,21 +19,6 @@ jobs:
             touch bbbb
             ls
 
-  deploy2:
-    docker:
-      - image: circleci/python:3.6
-    steps:
-      - run:
-          command: |
-            echo 22222 deploy2 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
-
-  deploy3:
-    docker:
-      - image: circleci/python:3.6
-    steps:
-      - run:
-          command: |
-            echo 22222 deploy3 ${CIRCLE_BRANCH} ${CIRCLE_TAG}
 
 
 workflows:
@@ -42,9 +27,10 @@ workflows:
     jobs:
       - build:
           filters:
+            # ignore any commit on any branch by default
+#            branches:
+#              ignore: /.*/
             # only act on version tags
-            branches:
-              ignore: /.*/
             tags:
               only: /v.*/
 
@@ -53,9 +39,9 @@ workflows:
             - build
 
           filters:
-            branches:
-              ignore: /.*/
-
+            # ignore any commit on any branch by default
+#            branches:
+#              ignore: /.*/
             # only act on version tags
             tags:
               only: /^v.*/
